@@ -1,20 +1,23 @@
 import "./style.css";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux"
 import { deleteRequest, getRequest } from "../../store/thunk/mockApiThunk";
+import { ContactModal } from "./ContactModal";
 
 
 export const ContactBook = () => {
     const { loading, contacts } = useSelector(store => store.contactsReducer);
     const dispatch = useDispatch();
+    const [isModal, setModal] = useState(null);
 
     useEffect(() => {
         dispatch(getRequest('contactBook'))
     }, [])
 
-    const deleteHandler = (id) => {
+    const deleteHandler = (e, id) => {
+        e.stopPropagation();
         dispatch(deleteRequest('contactBook', id))
     }
 
@@ -22,10 +25,11 @@ export const ContactBook = () => {
         <div className='contacts__container'>
             <Link to='/ContactBook/contact-form'><button className='button button__create'>Add New Contact</button></Link>
             {loading && <div className="loading">Loading...</div>}
+            {isModal && <ContactModal user={isModal} onClose={setModal}/>}
             <ul className='contacts__list'>
                 {contacts && contacts.map(item => {
                     return (
-                        <li key={item.id} className='contacts__item'>
+                        <li key={item.id} className='contacts__item' onClick={() => setModal(item)}>
                             <div className="contacts__name">
                                 <p className="contacts__item-text">{item.name}</p>
                                 <p className="contacts__item-text">{item.lastName}</p>
@@ -38,7 +42,7 @@ export const ContactBook = () => {
                                         <img className="edit__icon" src="./img/edit-icon.png" alt='edit icon'/>
                                     </button>
                                 </Link >
-                                <button className="button button__icon" onClick={() => deleteHandler(item.id)}>
+                                <button className="button button__icon" onClick={(e) => deleteHandler(e, item.id)}>
                                     <img className="delete__icon" src="./img/delete-icon.png" alt='edit icon'/>
                                 </button>
                             </div>
