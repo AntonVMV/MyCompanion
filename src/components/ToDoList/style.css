@@ -1,0 +1,85 @@
+.todo__list{
+    list-style: none;
+    padding: 30px 0;
+    margin: 0;
+    display: grid;
+    grid-gap: 20px;
+    color: #666666;
+}
+
+.todo__item{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.todo__checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.todo__item p{
+    margin: 5px;
+    padding: 0;
+}
+
+.todo__content{
+    padding: 10px 20px;
+    background-color: rgb(243, 243, 243);
+    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+.todo__text{
+    font-size: 18px;
+    color: black;
+}
+
+.todo__date{
+    font-size: 12px;
+ }
+
+.todo__done p{
+    color: rgba(0, 0, 0, 0.2);
+    text-decoration: line-through;
+}
+
+/********FORM*******/
+
+.todo__form {
+    padding: 10px;
+    margin-top: 30px;
+    display: grid;
+    grid-gap: 10px;
+    color: #666666;
+    max-width: 700px;
+    background-color: rgb(243, 243, 243);
+    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+.todo__date{
+    justify-self: flex-start;
+    border: none;
+    font-size: 16px;
+}
+
+.todo__label{
+    font-size: 14px;
+}
+
+.todo__input{
+    resize: none;
+    font-size: 18px;
+    border: none;
+}
+
+@media screen and (max-width: 500px) {
+    .todo__text{
+        font-size: 16px;
+        color: black;
+    }
+
+    .todo__date{
+        font-size: 14px;
+    }
+  }
