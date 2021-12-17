@@ -26,7 +26,7 @@
 
 .todo__content{
     padding: 10px 20px;
-    background-color: rgb(243, 243, 243);
+    background-color: #edeefd;
     box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -53,7 +53,7 @@
     grid-gap: 10px;
     color: #666666;
     max-width: 700px;
-    background-color: rgb(243, 243, 243);
+    background-color: #edeefd;
     box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -71,6 +71,10 @@
     resize: none;
     font-size: 18px;
     border: none;
+}
+
+.todo__input:focus{
+    outline-color: #4c57e6;
 }
 
 @media screen and (max-width: 500px) {

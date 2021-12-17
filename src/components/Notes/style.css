@@ -8,7 +8,7 @@
 }
 
 .notes__item{
-    background-color: #ffc;
+    background-color: #f8f9ff;
     padding: 15px;
     display: grid;
     grid-template-rows: 1fr auto;

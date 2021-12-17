@@ -2,13 +2,13 @@
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
-    background-color: #F2F2F2;
+    background-color: #edeefd;
     padding: 10px 30px;
 }
 
 .link{
     text-decoration: none;
-    color: #666666;
+    color: #747dec;
 }
 
 .nav__list{
@@ -27,7 +27,7 @@
 }
 
 .nav__link:hover{
-    background-color: #E0E0E0;
+    background-color: #c5c9f7;
     transition: all .3s ease;
 }
 
@@ -38,8 +38,8 @@
 }
 
 .nav__link.active{
-    background-color: #CFE5FF;
-    color: #527AAA;
+    background-color: #747dec;
+    color: #fff;
     pointer-events: none;
     transition: all .3s ease;
 }

@@ -2,8 +2,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useValidation } from "../../hooks/validationHook";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 export const ContactForm = ({item, onSubmit}) => {
     const [values, setValues] = useState(item);

@@ -4,6 +4,8 @@ body {
     font-family: 'Lato', sans-serif;
     box-sizing: border-box;
     overflow-y: overlay;
+    -webkit-tap-highlight-color: transparent;
+
 }
 
 body textarea{
@@ -24,14 +26,14 @@ body input{
 }
 
 .button__create{
-    background-color: #e15c60;
+    background-color: #747dec;
     color: #fff;
  
     box-shadow: 0px 5px 7px rgba(33,33,33,.7);
 }
   
   .button__create:hover{
-    background-color: #da353b;
+    background-color: #4c57e6;
 
 }
 
@@ -42,11 +44,11 @@ body input{
 
 .button__edit{
     background-color: transparent;
-    color: #4aac3e;
+    color: #4c57e6;
 }
 
 .button__edit:hover{
-    background-color: rgba(141, 228, 148, 0.2);   
+    background-color: #c5c9f7;
 }
 
 .button__delete{

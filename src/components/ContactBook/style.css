@@ -13,7 +13,7 @@
     align-items: center;
     grid-template-columns: 1fr 1fr 1fr auto;
     padding: 10px 50px;
-    background-color: #dee8e7;
+    background-color: #edeefd;
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
@@ -26,7 +26,7 @@
     justify-self: center;
     font-size: 24px;
     font-weight: 700;
-    color: #525252;
+    color: #747dec;
 }
 
 .contacts__name{
@@ -38,11 +38,13 @@
     justify-self: center;
     font-size: 20px;
     font-weight: 400;
+    color: #9da3f1;
 }
 
 .contacts__item-text{
     font-size: 20px;
     font-weight: 600;
+    color: #4c57e6;
 }
 
 .contacts__item-controls{
@@ -55,7 +57,7 @@
 .contacts__item:hover{
     transform: scale(1.01);
     box-shadow: 0px 10px 8px 0px rgba(0, 0, 0, 0.2);
-    background-color: #c3d5d3;
+    background-color: #d6d9fc;
     transition: .3s ease;
 }
 
@@ -83,16 +85,20 @@
     display: grid;
     grid-gap: 16px;
     padding: 30px;
-    background-color: #c3d5d3;
+    background-color: #c5c9f7;
     box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.5);
 }
 
 .input-field{
     font-size: 18px;
     padding: 10px;
-    background-color: #f6f9f8;
+    background-color: #edeefd;
     border: none;
     border-radius: 3px;
+}
+
+.input-field:focus{
+    outline-color: #4c57e6;
 }
 
 .form-label{
@@ -152,7 +158,7 @@
 
 .modal__header{
     padding: 30px;
-    background-color: rgb(39, 174, 97);
+    background-color: #4c57e6;
     text-transform: uppercase;
     color: #fff;
     font-weight: 600;
@@ -176,13 +182,13 @@
 .modal__button{
     justify-self: flex-end;
     background-color: transparent;
-    border: 1px solid rgb(39, 174, 97);
+    border: 1px solid #4c57e6;
     padding: 10px 30px;
     margin: 0 10px;
 }
 
 .modal__button:hover{
-    background-color: rgb(39, 174, 97);
+    background-color: #4c57e6;
     color: #fff;
 }
 
