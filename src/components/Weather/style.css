@@ -76,10 +76,12 @@
 @media screen and (max-width: 800px) {
 
     .weather__list{
-        padding: 10px;
+        box-sizing: border-box;
+        padding: 10px 20px;
         grid-template-columns: auto;
         grid-auto-flow: column;
         overflow-y: hidden;
+        width: 100%;
     }
 
     .weather__item{
