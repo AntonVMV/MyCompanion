@@ -105,3 +105,17 @@
         width: 35px;
     }
   }
+
+@media screen and (max-height: 450px) {
+    .nav__list{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 10px;
+        width: 50vw;
+        justify-items: center;
+    }
+    .menu__close{
+        grid-column: 1 / 3;
+        justify-self: flex-start;
+    }
+  }

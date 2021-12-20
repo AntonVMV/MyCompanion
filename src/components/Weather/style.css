@@ -81,7 +81,7 @@
         grid-template-columns: auto;
         grid-auto-flow: column;
         overflow-y: hidden;
-        width: 100%;
+        width: calc(100vw - 50px);
     }
 
     .weather__item{
@@ -93,5 +93,18 @@
 
     .weather__content{
         grid-row: 2 / 3;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .weather__list{
+        width: calc(100vw - 30px);
+    }
+}
+
+@media screen and (max-width: 350px) {
+  .weather__list{
+        width: calc(100vw - 10px);
     }
 }

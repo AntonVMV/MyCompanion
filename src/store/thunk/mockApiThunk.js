@@ -35,7 +35,6 @@ export const deleteRequest = (option, data) => async (dispatch) => {
   dispatch(actions.startAction(option.toUpperCase(), 'DELETE')())
   try {
     const result = await requests.deleteData(data, option)
-    console.log(result)
     dispatch(actions.successAction(option.toUpperCase(), 'DELETE')(result))
   } catch (e) {
     dispatch(actions.failureAction(option.toUpperCase(), 'DELETE')('Error'))

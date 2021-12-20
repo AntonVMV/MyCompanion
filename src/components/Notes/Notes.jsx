@@ -5,19 +5,22 @@ import './style.css'
 import { NewNote } from './NewNote'
 import { Note } from './Note'
 import { EditNote } from './EditNote'
+import { DeleteModal } from '../DeleteModal/DeleteModal'
 
 export const Notes = () => {
   const dispatch = useDispatch()
   const { notes, loading } = useSelector((store) => store.noteReducer)
   const [isActiveForm, setActiveForm] = useState(false)
   const [edit, setEdit] = useState()
+  const [deleteItemId, setDeleteItemId] = useState(null)
 
   useEffect(() => {
     dispatch(getRequest('notes'))
   }, [])
 
-  const deleteHandler = (id) => {
-    dispatch(deleteRequest('notes', id))
+  const deleteHandler = () => {
+    dispatch(deleteRequest('notes', deleteItemId))
+    setDeleteItemId(null)
   }
 
   return (
@@ -37,7 +40,7 @@ export const Notes = () => {
                     id={item.id}
                     text={item.text}
                     setEdit={setEdit}
-                    deleteHandler={deleteHandler}
+                    toDelete={setDeleteItemId}
                   />
                 ) : (
                   <EditNote id={item.id} setEdit={setEdit} text={item.text} />
@@ -46,6 +49,7 @@ export const Notes = () => {
             )
           })}
       </ul>
+      {deleteItemId && <DeleteModal onAgree={deleteHandler} onCancel={setDeleteItemId} />}
     </div>
   )
 }

@@ -3,12 +3,14 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { deleteRequest, getRequest, putRequest } from '../../store/thunk/mockApiThunk'
 import { NewToDo } from './NewToDo'
+import { DeleteModal } from '../DeleteModal/DeleteModal'
 import './style.css'
 
 export const ToDoList = () => {
   const { loading, toDo } = useSelector((store) => store.toDoReducer)
   const dispatch = useDispatch()
   const [input, setInput] = useState(false)
+  const [deleteItemId, setDeleteItemId] = useState(null)
 
   useEffect(() => {
     dispatch(getRequest('toDoList'))
@@ -19,7 +21,8 @@ export const ToDoList = () => {
   }
 
   const deleteHandler = (id) => {
-    dispatch(deleteRequest('toDoList', id))
+    dispatch(deleteRequest('toDoList', deleteItemId))
+    setDeleteItemId(null)
   }
 
   return (
@@ -46,13 +49,17 @@ export const ToDoList = () => {
                     <p className="todo__text">{item.text}</p>
                     <p className="todo__date">Deadline: {item.deadline}</p>
                   </div>
-                  <button className="button button__delete" onClick={() => deleteHandler(item.id)}>
+                  <button
+                    className="button button__delete"
+                    onClick={() => setDeleteItemId(item.id)}
+                  >
                     Delete
                   </button>
                 </li>
               )
             })}
       </ul>
+      {deleteItemId && <DeleteModal onAgree={deleteHandler} onCancel={setDeleteItemId} />}
     </div>
   )
 }

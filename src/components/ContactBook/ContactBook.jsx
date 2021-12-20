@@ -5,19 +5,21 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { deleteRequest, getRequest } from '../../store/thunk/mockApiThunk'
 import { ContactModal } from './ContactModal'
+import { DeleteModal } from '../DeleteModal/DeleteModal'
 
 export const ContactBook = () => {
   const { loading, contacts } = useSelector((store) => store.contactsReducer)
   const dispatch = useDispatch()
   const [isModal, setModal] = useState(null)
+  const [deleteItemId, setDeleteItemId] = useState(null)
 
   useEffect(() => {
     dispatch(getRequest('contactBook'))
   }, [])
 
-  const deleteHandler = (e, id) => {
-    e.stopPropagation()
-    dispatch(deleteRequest('contactBook', id))
+  const deleteHandler = () => {
+    dispatch(deleteRequest('contactBook', deleteItemId))
+    setDeleteItemId(null)
   }
 
   return (
@@ -46,7 +48,10 @@ export const ContactBook = () => {
                   </Link>
                   <button
                     className="button button__icon"
-                    onClick={(e) => deleteHandler(e, item.id)}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setDeleteItemId(item.id)
+                    }}
                   >
                     <img className="delete__icon" src="./img/delete-icon.png" alt="edit icon" />
                   </button>
@@ -55,6 +60,7 @@ export const ContactBook = () => {
             )
           })}
       </ul>
+      {deleteItemId && <DeleteModal onAgree={deleteHandler} onCancel={setDeleteItemId} />}
     </div>
   )
 }
