@@ -11,8 +11,17 @@ export const Home = () => {
   const { currentWeather, loading: weatherLoading } = useSelector((store) => store.weatherReducer)
   const { toDo, loading: toDoLoading } = useSelector((store) => store.toDoReducer)
 
+  const locationAcc = (pos) => {
+    var crd = pos.coords
+    dispatch(getCurrentWeatherRequest(crd.latitude, crd.longitude))
+  }
+
+  const locationDis = () => {
+    dispatch(getCurrentWeatherRequest('50.4333', '30.5167'))
+  }
+
   useEffect(() => {
-    dispatch(getCurrentWeatherRequest())
+    navigator.geolocation.getCurrentPosition(locationAcc, locationDis)
     dispatch(getRequest('toDoList'))
   }, [])
 
@@ -41,7 +50,7 @@ export const Home = () => {
                   </p>
                 )
               }
-              return <></>
+              return null
             })}
         </div>
       )}

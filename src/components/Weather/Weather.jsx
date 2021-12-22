@@ -10,8 +10,17 @@ export const Weather = () => {
   const dispatch = useDispatch()
   const [filtered, setFiltered] = useState({})
 
+  const locationAcc = (pos) => {
+    var crd = pos.coords
+    dispatch(getWeatherRequest(crd.latitude, crd.longitude))
+  }
+
+  const locationDis = (err) => {
+    dispatch(getWeatherRequest('50.4333', '30.5167'))
+  }
+
   useEffect(() => {
-    dispatch(getWeatherRequest())
+    navigator.geolocation.getCurrentPosition(locationAcc, locationDis)
   }, [])
 
   useEffect(() => {
