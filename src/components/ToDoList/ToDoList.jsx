@@ -13,7 +13,9 @@ export const ToDoList = () => {
   const [deleteItemId, setDeleteItemId] = useState(null)
 
   useEffect(() => {
-    dispatch(getRequest('toDoList'))
+    if (!toDo) {
+      dispatch(getRequest('toDoList'))
+    }
   }, [])
 
   const checkboxHandler = (item) => {

@@ -13,9 +13,6 @@
     display: grid;
     grid-template-rows: 1fr auto;
     box-shadow: 0px 5px 7px rgba(33,33,33,.7);
-    -webkit-transform:rotate(-6deg);
-    -o-transform:rotate(-6deg);
-    -moz-transform:rotate(-6deg);
     transition: .3s ease;
     grid-gap: 10px;
 }
@@ -23,29 +20,6 @@
 .note__text{
   margin: 0;
 }
-
-.notes__item:nth-child(even){
-    -o-transform:rotate(4deg);
-    -webkit-transform:rotate(4deg);
-    -moz-transform:rotate(4deg);
-    position:relative;
-    top:5px;
-  
-  }
-.notes__item:nth-child(3n){
-    -o-transform:rotate(-3deg);
-    -webkit-transform:rotate(-3deg);
-    -moz-transform:rotate(-3deg);
-    position:relative;
-    top:-5px;
-  }
-.notes__item:nth-child(5n){
-    -o-transform:rotate(5deg);
-    -webkit-transform:rotate(5deg);
-    -moz-transform:rotate(5deg);
-    position:relative;
-    top:-10px;
-  }
 
 .note__controls{
   display: flex;

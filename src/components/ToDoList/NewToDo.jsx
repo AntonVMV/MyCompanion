@@ -16,6 +16,16 @@ export const NewToDo = (props) => {
     props.setInput(false)
   }
 
+  const todayDate = () => {
+    let today = new Date()
+    const dd = String(today.getDate()).padStart(2, '0')
+    const mm = String(today.getMonth() + 1).padStart(2, '0')
+    const yyyy = today.getFullYear()
+    today = yyyy + '-' + mm + '-' + dd
+    console.log(today)
+    return today
+  }
+
   return (
     <form className="todo__form" onSubmit={submitHandler} onReset={resetHandler}>
       <textarea
@@ -33,6 +43,7 @@ export const NewToDo = (props) => {
         className="todo__date"
         onChange={(e) => setValue({ ...value, deadline: e.target.value })}
         required
+        min={todayDate()}
       />
       <div className="input__controls">
         <button type="submit" className="button button__edit">

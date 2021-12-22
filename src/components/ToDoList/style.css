@@ -27,7 +27,7 @@
 .todo__content{
     padding: 10px 20px;
     background-color: #edeefd;
-    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
 .todo__text{
@@ -54,7 +54,7 @@
     color: #666666;
     max-width: 700px;
     background-color: #edeefd;
-    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
 .todo__date{
