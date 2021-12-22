@@ -8,8 +8,8 @@ import { getRequest } from '../../store/thunk/mockApiThunk'
 
 export const Home = () => {
   const dispatch = useDispatch()
-  const { currentWeather } = useSelector((store) => store.weatherReducer)
-  const { toDo } = useSelector((store) => store.toDoReducer)
+  const { currentWeather, loading: weatherLoading } = useSelector((store) => store.weatherReducer)
+  const { toDo, loading: toDoLoading } = useSelector((store) => store.toDoReducer)
 
   useEffect(() => {
     dispatch(getCurrentWeatherRequest())
@@ -18,24 +18,33 @@ export const Home = () => {
 
   return (
     <div className="home__container">
-      <div className="weather__widget">
-        <h3 className="home__header">Weather now:</h3>
-        {currentWeather && <WeatherCard item={currentWeather} />}
-      </div>
-      <div className="todo__widget">
-        <h3 className="home__header">Undone todos:</h3>
-        {toDo &&
-          toDo.map((item) => {
-            if (!item.done) {
-              return (
-                <p key={item.id} className="todo__content home__todo">
-                  {item.text}
-                </p>
-              )
-            }
-            return <></>
-          })}
-      </div>
+      {weatherLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <div className="weather__widget">
+          <h3 className="home__header">Weather now:</h3>
+          {currentWeather && <WeatherCard item={currentWeather} />}
+        </div>
+      )}
+
+      {toDoLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <div className="todo__widget">
+          <h3 className="home__header">Undone todos:</h3>
+          {toDo &&
+            toDo.map((item) => {
+              if (!item.done) {
+                return (
+                  <p key={item.id} className="todo__content home__todo">
+                    {item.text}
+                  </p>
+                )
+              }
+              return <></>
+            })}
+        </div>
+      )}
     </div>
   )
 }
